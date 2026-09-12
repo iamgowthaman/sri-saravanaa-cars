@@ -1,0 +1,710 @@
+<title>Sri Saravanaa Cars</title>
+<meta name="description" content="Sri Saravanaa Cars, Rasipuram — trusted used car dealer for buying and selling pre-owned cars in Rasipuram, Namakkal, Tiruchengode and nearby towns.">
+<link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ============ TOKENS ============ */
+  :root{
+    --ground: #EEF0F1;
+    --surface: #FFFFFF;
+    --surface-sunk: #E4E7E9;
+    --ink: #14181B;
+    --ink-soft: #4B5560;
+    --ink-faint: #7C868D;
+    --line: #C9CFD3;
+    --line-strong: #14181B;
+    --accent: #17643F;
+    --accent-ink: #FFFFFF;
+    --accent-soft: #E1EEE6;
+    --signal: #B65A0A;
+    --signal-soft: #F7E7D5;
+    --wa: #1F8A57;
+    --shadow: 0 1px 2px rgba(20,24,27,.06), 0 10px 24px -12px rgba(20,24,27,.18);
+    --radius-s: 3px;
+    --radius-m: 10px;
+    --font-display: 'Catamaran', 'Noto Sans Tamil', system-ui, sans-serif;
+    --font-body: 'Work Sans', 'Noto Sans Tamil', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground: #14171A; --surface: #1C2024; --surface-sunk: #23282C;
+      --ink: #ECEFF1; --ink-soft: #A7B0B6; --ink-faint: #7C868D;
+      --line: #2C3237; --line-strong: #ECEFF1;
+      --accent: #49B27E; --accent-ink: #0C1410; --accent-soft: #1B2F24;
+      --signal: #E1893D; --signal-soft: #33220E; --wa: #33C97B;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 24px -12px rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground: #14171A; --surface: #1C2024; --surface-sunk: #23282C;
+    --ink: #ECEFF1; --ink-soft: #A7B0B6; --ink-faint: #7C868D;
+    --line: #2C3237; --line-strong: #ECEFF1;
+    --accent: #49B27E; --accent-ink: #0C1410; --accent-soft: #1B2F24;
+    --signal: #E1893D; --signal-soft: #33220E; --wa: #33C97B;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 24px -12px rgba(0,0,0,.5);
+  }
+
+  /* ============ BASE ============ */
+  *{ box-sizing:border-box; }
+  body{ background: var(--ground); color: var(--ink); font-family: var(--font-body); font-size: 15.5px; line-height: 1.55; }
+  body.lang-ta{ --font-body: var(--font-display); line-height: 1.75; }
+  h1,h2,h3,.display{ font-family: var(--font-display); font-weight:800; letter-spacing:-.01em; text-wrap: balance; color: var(--ink); }
+  .mono{ font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+  a{ color: inherit; text-decoration:none; }
+  a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; }
+  button{ font-family: inherit; cursor:pointer; background:none; border:none; color:inherit; }
+  img,svg{ max-width:100%; }
+  [hidden]{ display:none !important; }
+  .wrap{ max-width: 1080px; margin-inline:auto; padding-inline: 20px; }
+  .eyebrow{ font-family: var(--font-mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color: var(--accent); font-weight:600; display:block; }
+  @media (prefers-reduced-motion: reduce){ *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; } }
+  .icon{ width:1em; height:1em; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; display:inline-block; vertical-align:-0.14em; }
+
+  /* ============ TOPBAR ============ */
+  .topbar{ position: sticky; top:0; z-index:40; background: color-mix(in srgb, var(--ground) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .topbar-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; height:64px; }
+  .brand{ display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:800; font-size:1.05rem; }
+  .brand small{ display:block; font-family:var(--font-mono); font-weight:600; font-size:.62rem; letter-spacing:.1em; color:var(--ink-faint); text-transform:uppercase; }
+  .logo-chip{ display:inline-flex; align-items:center; justify-content:center; background:#fff; border-radius:8px; padding:3px; box-shadow:0 1px 2px rgba(0,0,0,.15); flex-shrink:0; }
+  .logo-chip img{ display:block; width:28px; height:28px; object-fit:contain; border-radius:5px; }
+  .logo-chip-lg{ padding:6px; border-radius:12px; }
+  .logo-chip-lg img{ width:48px; height:48px; border-radius:8px; }
+  nav.primary{ display:flex; align-items:center; gap:26px; }
+  nav.primary a{ font-size:.88rem; font-weight:600; color:var(--ink-soft); padding-block:6px; border-bottom:2px solid transparent; }
+  nav.primary a.active, nav.primary a:hover{ color:var(--ink); border-color:var(--accent); }
+  .topbar-actions{ display:flex; align-items:center; gap:8px; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; justify-content:center; font-size:.86rem; font-weight:600; padding:9px 16px; border-radius: var(--radius-s); border:1px solid var(--line-strong); background:transparent; color:var(--ink); transition: transform .15s ease, background .15s ease; }
+  .btn:hover{ transform: translateY(-1px); }
+  .btn-solid{ background: var(--accent); border-color:var(--accent); color: var(--accent-ink); }
+  .btn-wa{ background: var(--wa); border-color:var(--wa); color:#fff; }
+  .btn-ghost{ border-color: var(--line); color: var(--ink-soft); }
+  .btn-block{ width:100%; }
+  .btn-lg{ padding:13px 22px; font-size:.95rem; }
+  .icon-btn{ width:38px; height:38px; border:1px solid var(--line); border-radius:var(--radius-s); display:flex; align-items:center; justify-content:center; color:var(--ink-soft); flex-shrink:0; }
+  .icon-btn:hover{ color:var(--ink); border-color:var(--line-strong); }
+  .lang-switch{ display:flex; border:1px solid var(--line); border-radius:var(--radius-s); overflow:hidden; }
+  .lang-switch button{ font-family:var(--font-mono); font-size:.72rem; font-weight:700; padding:8px 10px; color:var(--ink-faint); letter-spacing:.03em; }
+  .lang-switch button.active{ background:var(--accent-soft); color:var(--accent); }
+  .menu-toggle{ display:none; background:none; border:1px solid var(--line); border-radius:var(--radius-s); width:38px; height:38px; align-items:center; justify-content:center; }
+  .mobile-drawer{ display:none; }
+  .mobile-controls{ display:flex; gap:8px; align-items:center; margin-top:14px; }
+  @media (max-width: 860px){
+    nav.primary, .topbar-actions{ display:none; }
+    .menu-toggle{ display:flex; }
+    .mobile-drawer.open{ display:block; }
+    .mobile-drawer{ border-top:1px solid var(--line); padding: 14px 20px 20px; }
+    .mobile-drawer a.mnav{ display:block; padding:10px 0; font-weight:600; border-bottom:1px solid var(--line); }
+    .mobile-drawer .btn{ margin-top:14px; }
+  }
+
+  /* ============ HERO ============ */
+  .hero{ position:relative; overflow:hidden; border-bottom:1px solid var(--line); }
+  .hero-grid{ display:grid; grid-template-columns: 1.05fr .95fr; gap:40px; align-items:center; padding-block: 56px 44px; }
+  @media (max-width: 860px){ .hero-grid{ grid-template-columns:1fr; padding-block:36px 28px; } }
+  .hero-line{ opacity:0; animation: riseIn .7s cubic-bezier(.2,.7,.2,1) forwards; }
+  .hero-line:nth-child(1){ animation-delay:.02s; } .hero-line:nth-child(2){ animation-delay:.12s; }
+  .hero-line:nth-child(3){ animation-delay:.22s; } .hero-line:nth-child(4){ animation-delay:.32s; }
+  @keyframes riseIn{ from{ opacity:0; transform:translateY(14px);} to{ opacity:1; transform:translateY(0);} }
+  .tagline-ta{ font-family:'Catamaran','Noto Sans Tamil',sans-serif; font-weight:700; font-size:1.25rem; color:var(--accent); }
+  .hero h1{ font-size: clamp(2rem, 4.4vw, 3.1rem); line-height:1.1; margin-block:10px 14px; }
+  .hero p.lede{ color:var(--ink-soft); font-size:1.05rem; max-width:46ch; }
+  .hero-ctas{ display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+  .route-svg{ width:100%; height:auto; }
+  .route-svg path.route{ stroke-dasharray:640; stroke-dashoffset:640; animation: drawRoute 1.7s ease-out .25s forwards; }
+  @keyframes drawRoute{ to{ stroke-dashoffset:0; } }
+  @media (prefers-reduced-motion: reduce){ .route-svg path.route{ stroke-dashoffset:0; } }
+
+  .trust-strip{ border-top:1px solid var(--line); background:var(--surface); }
+  .trust-row{ display:grid; grid-template-columns:repeat(4,1fr); }
+  .trust-item{ display:flex; align-items:center; gap:10px; padding:18px 16px; border-right:1px solid var(--line); }
+  .trust-item:last-child{ border-right:none; }
+  .trust-item .icon{ width:20px; height:20px; color:var(--accent); flex-shrink:0; }
+  .trust-item span{ font-size:.82rem; font-weight:600; color:var(--ink-soft); }
+  @media (max-width:860px){ .trust-row{ grid-template-columns:repeat(2,1fr);} .trust-item:nth-child(2){ border-right:none; } .trust-item{ border-bottom:1px solid var(--line); } }
+
+  section.block{ padding-block: 52px; }
+  .block-head{ margin-bottom:26px; }
+  .block-head h2{ font-size:1.7rem; margin-top:6px; }
+  .block-head p{ color:var(--ink-soft); margin-top:6px; max-width:60ch; }
+  .tag-note{ display:inline-flex; align-items:center; gap:6px; font-family:var(--font-mono); font-size:.68rem; letter-spacing:.06em; text-transform:uppercase; color:var(--signal); background:var(--signal-soft); border-radius:999px; padding:4px 10px; font-weight:600; }
+
+  /* ============ SERVICES ============ */
+  .svc-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+  .svc-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-m); padding:22px 20px; }
+  .svc-icon{ width:40px; height:40px; border-radius:50%; background:var(--accent-soft); color:var(--accent); display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
+  .svc-icon .icon{ width:20px; height:20px; }
+  .svc-card h3{ font-family:var(--font-body); font-weight:600; font-size:1rem; margin-bottom:6px; }
+  body.lang-ta .svc-card h3{ font-family:var(--font-display); font-weight:700; }
+  .svc-card p{ color:var(--ink-soft); font-size:.88rem; line-height:1.55; }
+
+  /* ============ ABOUT / STEPS ============ */
+  .steps{ display:flex; flex-direction:column; gap:14px; }
+  .step{ display:flex; gap:14px; align-items:flex-start; }
+  .step-num{ font-family:var(--font-mono); font-weight:700; font-size:.82rem; width:30px; height:30px; border-radius:50%; border:1.5px solid var(--line-strong); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:36px; }
+  @media (max-width:760px){ .two-col{ grid-template-columns:1fr; } }
+
+  /* ============ LOCATION ============ */
+  .location{ background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .location-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; padding-block:48px; }
+  @media (max-width:860px){ .location-grid{ grid-template-columns:1fr; } }
+  .hours-row{ display:flex; justify-content:space-between; gap:12px; font-size:.88rem; padding-block:4px; border-bottom:1px dotted var(--line); }
+  .hours-row:last-child{ border-bottom:none; }
+  .chip-town{ display:inline-block; font-family:var(--font-mono); font-size:.72rem; background:var(--surface-sunk); border:1px solid var(--line); color:var(--ink-soft); padding:4px 10px; border-radius:999px; margin:0 6px 6px 0; }
+  .map-art{ background:var(--surface-sunk); border:1px solid var(--line); border-radius:var(--radius-m); padding:22px; }
+  .map-art svg{ width:100%; height:auto; }
+  .map-caption{ font-family:var(--font-mono); font-size:.7rem; color:var(--ink-faint); text-align:center; margin-top:10px; }
+
+  /* ============ SELL FORM ============ */
+  .form-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-m); padding:28px; box-shadow:var(--shadow); }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:600px){ .form-row{ grid-template-columns:1fr; } }
+  .field{ display:flex; flex-direction:column; gap:6px; margin-bottom:16px; }
+  .field label{ font-size:.8rem; font-weight:600; color:var(--ink-soft); }
+  .field input, .field textarea{ font-family:var(--font-body); font-size:.92rem; padding:11px 13px; border-radius:var(--radius-s); border:1px solid var(--line); background:var(--ground); color:var(--ink); }
+  .form-note{ font-size:.76rem; color:var(--ink-faint); text-align:center; margin-top:10px; }
+
+  /* ============ FOOTER ============ */
+  footer.site{ background:#14171A; color:#C7CDD1; padding-block:44px 24px; }
+  .footer-grid{ display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:32px; font-size:.86rem; }
+  @media (max-width:700px){ .footer-grid{ grid-template-columns:1fr; } }
+  footer.site h4{ color:#fff; font-family:var(--font-display); font-weight:700; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; margin-bottom:10px; }
+  footer.site a{ display:block; padding-block:3px; color:#C7CDD1; }
+  footer.site a:hover{ color:#fff; }
+  .footer-bottom{ text-align:center; font-size:.74rem; color:#7C868D; margin-top:34px; font-family:var(--font-mono); }
+
+  .floating-wa{ position:fixed; right:18px; bottom:18px; z-index:50; width:52px; height:52px; border-radius:50%; background:var(--wa); color:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 24px -6px rgba(0,0,0,.4); }
+  .floating-wa .icon{ width:24px; height:24px; stroke:none; fill:#fff; }
+</style>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M3 15.5V12l1.8-4.6A2 2 0 0 1 6.7 6h10.6a2 2 0 0 1 1.9 1.4L21 12v3.5"/><path d="M3 15.5h18M6 15.5V18M18 15.5V18"/><circle cx="7.5" cy="15.5" r="1.6"/><circle cx="16.5" cy="15.5" r="1.6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+  <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v9M9.3 15c0 1 1.1 1.8 2.7 1.8s2.7-.7 2.7-1.7c0-2.6-5.4-1.2-5.4-3.8 0-1 1.1-1.7 2.7-1.7s2.7.7 2.7 1.7"/></symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h13l-3-3M20 16H7l3 3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.5l7 2.6v5.4c0 4.6-3 7.8-7 9-4-1.2-7-4.4-7-9V6.1l7-2.6z"/><path d="M9 12l2.2 2.2L15.5 9.5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3.5h3l1.4 4-2 1.6a12 12 0 0 0 6.5 6.5l1.6-2 4 1.4v3a2 2 0 0 1-2.2 2C11 19.6 4.4 13 4 5.7A2 2 0 0 1 6 3.5z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path d="M8.3 8.7c.2-.6.5-.6.9-.6h.6c.2 0 .4 0 .6.5.2.5.7 1.7.7 1.8.1.1.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.3-.4.5-.1.1-.3.3-.1.6.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.9.9 2.2 1 .3.2.5.2.6.3.1.2.1 1-.3 1.9-.4.9-2 1.7-2.8 1.8-.7.1-1.6.1-2.6-.2-.6-.2-1.4-.4-2.4-.9-4.2-1.8-6.9-6.1-7.1-6.4-.2-.3-1.7-2.2-1.7-4.2 0-2 1-3 1.4-3.4z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-11.5A7 7 0 0 0 5 9.5C5 14.6 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6.5h16M4 12h16M4 17.5h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.2A8.5 8.5 0 1 1 9.8 4a6.8 6.8 0 0 0 10.2 10.2z"/></symbol>
+</svg>
+
+<!-- ============ TOPBAR ============ -->
+<header class="topbar">
+  <div class="wrap topbar-row">
+    <a href="#/" class="brand">
+      <span class="logo-chip"><img src="assets/img/logo.jpg" alt="Sri Saravanaa Cars logo" width="28" height="28"></span>
+      <span>Sri Saravanaa Cars<small data-i18n="brand_sub">Rasipuram · TN</small></span>
+    </a>
+    <nav class="primary">
+      <a href="#/" data-route="home" data-i18n="nav_home">Home</a>
+      <a href="#/sell" data-route="sell" data-i18n="nav_sell">Sell Your Car</a>
+      <a href="#/about" data-route="about" data-i18n="nav_about">About</a>
+      <a href="#/contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="topbar-actions">
+      <div class="lang-switch">
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="ta">தமிழ்</button>
+      </div>
+      <button type="button" class="icon-btn" id="themeToggle" aria-label="Toggle color theme"><svg class="icon" id="themeIcon"><use href="#i-moon"/></svg></button>
+      <a class="btn btn-ghost" data-cfg-href="tel" href="#"><svg class="icon"><use href="#i-phone"/></svg><span data-i18n="btn_call">Call</span></a>
+      <a class="btn btn-wa" data-cfg-href="whatsapp" href="#" target="_blank" rel="noopener"><svg class="icon"><use href="#i-wa"/></svg>WhatsApp</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu"><svg class="icon" id="menuIcon"><use href="#i-menu"/></svg></button>
+  </div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="#/" class="mnav" data-i18n="nav_home">Home</a>
+    <a href="#/sell" class="mnav" data-i18n="nav_sell">Sell Your Car</a>
+    <a href="#/about" class="mnav" data-i18n="nav_about">About</a>
+    <a href="#/contact" class="mnav" data-i18n="nav_contact">Contact</a>
+    <div class="mobile-controls">
+      <div class="lang-switch">
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="ta">தமிழ்</button>
+      </div>
+      <button type="button" class="icon-btn" id="themeToggleMobile" aria-label="Toggle color theme"><svg class="icon" id="themeIconMobile"><use href="#i-moon"/></svg></button>
+    </div>
+    <a class="btn btn-wa btn-block" data-cfg-href="whatsapp" href="#" target="_blank" rel="noopener"><svg class="icon"><use href="#i-wa"/></svg><span data-i18n="btn_whatsapp_us">WhatsApp Us</span></a>
+  </div>
+</header>
+
+<!-- ============ HOME VIEW ============ -->
+<main id="view-home">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="hero-line tagline-ta">உங்கள் நம்பகமான கார் டீலர்</p>
+        <h1 class="hero-line" data-i18n="hero_h1">Buy &amp; sell used cars the straightforward way.</h1>
+        <p class="hero-line lede" data-i18n="hero_lede">Sri Saravanaa Cars has served buyers and sellers around Rasipuram with inspected vehicles, honest pricing and paperwork handled end to end.</p>
+        <div class="hero-line hero-ctas">
+          <a href="#/sell" class="btn btn-solid btn-lg" data-i18n="hero_cta_primary">Get a Free Quote</a>
+          <a data-cfg-href="whatsapp" href="#" target="_blank" rel="noopener" class="btn btn-wa btn-lg"><svg class="icon"><use href="#i-wa"/></svg><span data-i18n="btn_whatsapp_us">WhatsApp Us</span></a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <svg class="route-svg" viewBox="0 0 420 300" fill="none">
+          <path class="route" d="M10 250 C 90 250, 90 150, 170 150 S 250 60, 330 60" stroke="var(--line-strong)" stroke-width="2.5" stroke-dasharray="2 10" stroke-linecap="round"/>
+          <circle cx="10" cy="250" r="5" fill="var(--accent)"/>
+          <circle cx="330" cy="60" r="6" fill="var(--signal)"/>
+          <g transform="translate(150,150)">
+            <path d="M-70 40V18l14-32a16 16 0 0 1 15-11h84a16 16 0 0 1 15 11l14 32v22" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M-70 40H60M-46 40v18M36 40v18" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="-46" cy="40" r="13" fill="var(--surface)" stroke="var(--ink)" stroke-width="3"/>
+            <circle cx="36" cy="40" r="13" fill="var(--surface)" stroke="var(--ink)" stroke-width="3"/>
+            <path d="M-46 7l12-27a1 1 0 0 1 1-1h66a1 1 0 0 1 1 1l12 27z" fill="var(--accent-soft)" stroke="var(--ink)" stroke-width="2.5"/>
+            <line x1="4" y1="-20" x2="4" y2="7" stroke="var(--ink)" stroke-width="2.5"/>
+          </g>
+          <text x="205" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="var(--ink-faint)" letter-spacing="1">RASIPURAM &middot; NAMAKKAL DT.</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-strip">
+    <div class="wrap trust-row">
+      <div class="trust-item"><svg class="icon"><use href="#i-check"/></svg><span data-i18n="trust_verified">Verified Cars</span></div>
+      <div class="trust-item"><svg class="icon"><use href="#i-coin"/></svg><span data-i18n="trust_fair">Fair Price</span></div>
+      <div class="trust-item"><svg class="icon"><use href="#i-swap"/></svg><span data-i18n="trust_exchange">Easy Exchange</span></div>
+      <div class="trust-item"><svg class="icon"><use href="#i-shield"/></svg><span data-i18n="trust_finance">Finance Assistance</span></div>
+    </div>
+  </div>
+
+  <section class="block wrap">
+    <div class="block-head">
+      <span class="eyebrow" data-i18n="services_eyebrow">What We Do</span>
+      <h2 data-i18n="services_heading">Buying or selling, we make it simple</h2>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card"><div class="svc-icon"><svg class="icon"><use href="#i-car"/></svg></div><h3 data-i18n="service_buy_title">Buy a Used Car</h3><p data-i18n="service_buy_desc">Visit the showroom or call us — we'll help you find a reliable car for your budget.</p></div>
+      <div class="svc-card"><div class="svc-icon"><svg class="icon"><use href="#i-coin"/></svg></div><h3 data-i18n="service_sell_title">Sell Your Car</h3><p data-i18n="service_sell_desc">Get a fair, no-obligation quote for your car in minutes.</p></div>
+      <div class="svc-card"><div class="svc-icon"><svg class="icon"><use href="#i-swap"/></svg></div><h3 data-i18n="service_exchange_title">Exchange &amp; Upgrade</h3><p data-i18n="service_exchange_desc">Trade in your current car towards your next one, hassle-free.</p></div>
+      <div class="svc-card"><div class="svc-icon"><svg class="icon"><use href="#i-shield"/></svg></div><h3 data-i18n="service_finance_title">Loan &amp; Finance Help</h3><p data-i18n="service_finance_desc">We assist with financing options so you can drive away sooner.</p></div>
+    </div>
+  </section>
+
+  <section class="block wrap" style="padding-top:0;">
+    <div style="background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-m); padding:40px 32px; text-align:center;">
+      <span class="eyebrow" data-i18n="sell_cta_eyebrow">Selling?</span>
+      <h2 style="margin-top:6px;" data-i18n="sell_cta_heading">Have a car to sell?</h2>
+      <p style="color:var(--ink-soft); max-width:44ch; margin-inline:auto;" data-i18n="sell_cta_text">Tell us your car's details and get a fair, no-obligation quote.</p>
+      <a href="#/sell" class="btn btn-solid btn-lg" style="margin-top:18px;" data-i18n="sell_cta_btn">Get a Free Quote</a>
+    </div>
+  </section>
+
+  <section class="location" id="homeLocation">
+    <div class="wrap location-grid">
+      <div>
+        <span class="eyebrow" data-i18n="location_eyebrow">Visit the Showroom</span>
+        <h2 style="margin-top:6px;" data-i18n="location_heading">Find us in Rasipuram</h2>
+        <p id="addressBlock" style="color:var(--ink-soft); margin-top:10px;"></p>
+        <div id="contactNumbers" class="mono" style="margin-top:12px; font-size:.85rem; display:flex; flex-direction:column; gap:4px;"></div>
+        <div id="hoursList" style="max-width:280px; margin-top:14px;"></div>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:20px;">
+          <a class="btn btn-ghost" data-cfg-href="tel" href="#"><svg class="icon"><use href="#i-phone"/></svg><span data-i18n="btn_call">Call</span></a>
+          <a class="btn btn-wa" data-cfg-href="whatsapp" href="#" target="_blank" rel="noopener"><svg class="icon"><use href="#i-wa"/></svg>WhatsApp</a>
+          <a class="btn btn-solid" data-cfg-href="directions" href="#" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg><span data-i18n="location_directions">Get Directions</span></a>
+        </div>
+        <p style="margin-top:20px; color:var(--ink-faint); font-size:.82rem;" data-i18n="location_also_from">Buyers &amp; sellers also reach us from</p>
+        <div id="serviceAreas" style="margin-top:6px;"></div>
+      </div>
+      <div class="map-art">
+        <svg viewBox="0 0 300 220">
+          <path d="M20 190 Q 80 40 150 110 T 280 30" stroke="var(--line)" stroke-width="2" stroke-dasharray="1 8" fill="none"/>
+          <g font-family="JetBrains Mono" font-size="10" fill="var(--ink-faint)">
+            <circle cx="20" cy="190" r="4" fill="var(--ink-faint)"/><text x="28" y="194">Salem</text>
+            <circle cx="150" cy="110" r="4" fill="var(--ink-faint)"/><text x="158" y="114">Namakkal</text>
+            <circle cx="280" cy="30" r="4" fill="var(--ink-faint)"/><text x="228" y="20">Tiruchengode</text>
+          </g>
+          <circle cx="95" cy="150" r="7" fill="var(--signal)"/>
+          <svg x="86" y="122" width="18" height="18" viewBox="0 0 24 24"><use href="#i-pin" fill="var(--signal)" stroke="var(--signal)"/></svg>
+          <text x="95" y="178" text-anchor="middle" font-family="Catamaran" font-weight="700" font-size="12" fill="var(--ink)">Sri Saravanaa Cars</text>
+        </svg>
+        <p class="map-caption" data-i18n="map_caption">Schematic route sketch — tap "Get Directions" for live navigation</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ SELL VIEW ============ -->
+<main id="view-sell" hidden>
+  <section class="block wrap" style="max-width:640px;">
+    <span class="eyebrow" style="text-align:center;" data-i18n="sell_cta_eyebrow">Selling?</span>
+    <h2 style="text-align:center; margin-top:6px;" data-i18n="sell_heading">Sell your car for a fair price</h2>
+    <p style="text-align:center; color:var(--ink-soft); margin-top:6px;" data-i18n="sell_sub">Fill in your car's details — we'll reply with a quote on WhatsApp.</p>
+    <form id="sellForm" class="form-card" style="margin-top:28px;">
+      <div class="form-row">
+        <div class="field"><label for="sf-name" data-i18n="field_name">Your Name</label><input required id="sf-name" name="name" type="text" data-i18n-placeholder="ph_name" placeholder="e.g. Karthik"></div>
+        <div class="field"><label for="sf-phone" data-i18n="field_phone">Phone Number</label><input required id="sf-phone" name="phone" type="tel" pattern="[0-9+ ]{10,15}" data-i18n-placeholder="ph_phone" placeholder="e.g. 98765 43210"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label for="sf-brand" data-i18n="field_brand">Car Brand</label><input required id="sf-brand" name="brand" type="text" data-i18n-placeholder="ph_brand" placeholder="e.g. Maruti Suzuki"></div>
+        <div class="field"><label for="sf-model" data-i18n="field_model">Model</label><input required id="sf-model" name="model" type="text" data-i18n-placeholder="ph_model" placeholder="e.g. Swift VDI"></div>
+      </div>
+      <div class="form-row" style="grid-template-columns:1fr 1fr 1fr;">
+        <div class="field"><label for="sf-year" data-i18n="field_year">Year</label><input required id="sf-year" name="year" type="number" min="1990" max="2026" placeholder="2019"></div>
+        <div class="field"><label for="sf-km" data-i18n="field_km">KM Driven</label><input required id="sf-km" name="km" type="number" min="0" placeholder="45000"></div>
+        <div class="field"><label for="sf-price" data-i18n="field_price">Expected Price</label><input required id="sf-price" name="price" type="text" placeholder="₹5,00,000"></div>
+      </div>
+      <div class="field"><label for="sf-notes" data-i18n="field_notes">Additional Notes (optional)</label><textarea id="sf-notes" name="notes" rows="3" data-i18n-placeholder="ph_notes" placeholder="Condition, service history, accessories, etc."></textarea></div>
+      <button type="submit" class="btn btn-wa btn-block btn-lg"><svg class="icon"><use href="#i-wa"/></svg><span data-i18n="sell_submit">Send Details on WhatsApp</span></button>
+      <p class="form-note" data-i18n="sell_note">Opens WhatsApp with your details pre-filled — nothing is stored on this site.</p>
+    </form>
+  </section>
+</main>
+
+<!-- ============ ABOUT VIEW ============ -->
+<main id="view-about" hidden>
+  <section class="block wrap">
+    <span class="eyebrow" data-i18n="about_eyebrow">Our Story</span>
+    <h2 style="margin-top:6px;" data-i18n="about_heading">About Sri Saravanaa Cars</h2>
+    <p style="color:var(--ink-soft); max-width:64ch; margin-top:12px;" data-i18n="about_story">Sri Saravanaa Cars has served buyers and sellers in Rasipuram with a simple promise: honest pricing, verified vehicles, and a hassle-free experience — whether you're buying your first car or upgrading, or selling one without the usual back-and-forth.</p>
+    <p class="tag-note" style="margin-top:14px;" data-i18n="about_owner_note">Owner note — replace this paragraph with your dealership's real story</p>
+
+    <div class="two-col" style="margin-top:46px;">
+      <div>
+        <h3 style="font-size:1.15rem; margin-bottom:16px;" data-i18n="about_buying_heading">How buying works</h3>
+        <div class="steps">
+          <div class="step"><span class="step-num mono">1</span><span data-i18n="about_buy_1">Visit the showroom or call us to see the cars currently available.</span></div>
+          <div class="step"><span class="step-num mono">2</span><span data-i18n="about_buy_2">Inspect and test-drive the car of your choice.</span></div>
+          <div class="step"><span class="step-num mono">3</span><span data-i18n="about_buy_3">We assist with paperwork, RC transfer and financing.</span></div>
+          <div class="step"><span class="step-num mono">4</span><span data-i18n="about_buy_4">Drive away with confidence.</span></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:1.15rem; margin-bottom:16px;" data-i18n="about_selling_heading">How selling works</h3>
+        <div class="steps">
+          <div class="step"><span class="step-num mono">1</span><span data-i18n="about_sell_1">Share your car's details on the Sell Your Car page.</span></div>
+          <div class="step"><span class="step-num mono">2</span><span data-i18n="about_sell_2">We evaluate the vehicle and offer a transparent quote.</span></div>
+          <div class="step"><span class="step-num mono">3</span><span data-i18n="about_sell_3">Agree on price — we handle the paperwork.</span></div>
+          <div class="step"><span class="step-num mono">4</span><span data-i18n="about_sell_4">Get paid quickly, no delays.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:52px;">
+      <h3 style="font-size:1.15rem;" data-i18n="about_areas_heading">Serving Rasipuram &amp; nearby</h3>
+      <div id="serviceAreasAbout" style="margin-top:12px;"></div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="brand" style="color:#fff;"><span class="logo-chip logo-chip-lg"><img src="assets/img/logo.jpg" alt="Sri Saravanaa Cars logo" width="48" height="48"></span><span>Sri Saravanaa Cars</span></div>
+      <p style="margin-top:8px; color:#9aa5ac;">Rasipuram, Namakkal District, Tamil Nadu</p>
+    </div>
+    <div>
+      <h4 data-i18n="footer_quicklinks">Quick Links</h4>
+      <a href="#/sell" data-i18n="nav_sell">Sell Your Car</a>
+      <a href="#/about" data-i18n="nav_about">About</a>
+      <a href="#/contact" data-i18n="nav_contact">Contact</a>
+    </div>
+    <div>
+      <h4 data-i18n="footer_contact">Contact</h4>
+      <a data-cfg-href="tel" href="#" data-cfg="phoneDisplay"></a>
+      <a data-cfg-href="whatsapp" href="#" target="_blank" rel="noopener" data-cfg="whatsappDisplay"></a>
+      <a data-cfg-href="mailto" href="#" data-cfg="email"></a>
+    </div>
+  </div>
+  <p class="footer-bottom">© <span id="year"></span> SRI SARAVANAA CARS · RASIPURAM, TN</p>
+</footer>
+
+<a id="floatingWhatsapp" href="#" target="_blank" rel="noopener" class="floating-wa" aria-label="Chat on WhatsApp"><svg class="icon"><use href="#i-wa"/></svg></a>
+
+<script>
+/* ============================================================
+   CONFIG (language-independent)
+   ============================================================ */
+const SITE_CONFIG = {
+  businessName: "Sri Saravanaa Cars",
+  whatsappNumber: "919442749039",
+  whatsappDisplay: "+91 94427 49039",
+  phoneDisplay: "+91 94436 02022",
+  phoneTel: "+919443602022",
+  email: "srisaravanaacars@gmail.com",
+  map: { lat:11.4436236, lng:78.1494674, directionsUrl:"https://www.google.com/maps/dir/?api=1&destination=11.4436236,78.1494674", viewUrl:"https://maps.app.goo.gl/Vd1eS4AtowUBMxzs8" }
+};
+
+const ADDRESS = {
+  en: { line1:"Sri Saravanaa Cars", line2:"Tiruchengode Main Road, Near PSK Complex, Koonavelampatti", line3:"Andagalur Gate Flyover, Kurukkapuram, Tamil Nadu", pincode:"637401" },
+  ta: { line1:"ஸ்ரீ சரவணா கார்ஸ்", line2:"திருச்செங்கோடு பிரதான சாலை, PSK காம்ப்ளக்ஸ் அருகில், கூனவேலம்பட்டி", line3:"அண்டகலூர் கேட் மேம்பாலம், குருக்கபுரம், தமிழ்நாடு", pincode:"637401" }
+};
+const HOURS = {
+  en: [ { day:"Monday – Saturday", time:"9:30 AM – 8:00 PM" }, { day:"Sunday", time:"10:00 AM – 6:00 PM" } ],
+  ta: [ { day:"திங்கள் – சனி", time:"9:30 AM – 8:00 PM" }, { day:"ஞாயிறு", time:"10:00 AM – 6:00 PM" } ]
+};
+const SERVICE_AREAS = {
+  en: ["Rasipuram","Namakkal","Tiruchengode","Sankari","Attur","Vennandur","Mallasamudram","Salem"],
+  ta: ["ராசிபுரம்","நாமக்கல்","திருச்செங்கோடு","சங்கரி","ஆத்தூர்","வெண்ணந்தூர்","மல்லசமுத்திரம்","சேலம்"]
+};
+const MSG = {
+  en: {
+    generic: biz => `Hi, I'm interested in your cars at ${biz}.`,
+    sell: d => [`Hi, I'd like to sell my car. Details:`,`Name: ${d.name}`,`Phone: ${d.phone}`,`Car: ${d.year} ${d.brand} ${d.model}`,`KM Driven: ${d.km}`,`Expected Price: ${d.price}`, d.notes?`Notes: ${d.notes}`:null].filter(Boolean).join('\n')
+  },
+  ta: {
+    generic: biz => `வணக்கம், ${biz} இல் உள்ள கார்கள் குறித்து விசாரிக்க விரும்புகிறேன்.`,
+    sell: d => [`வணக்கம், என் காரை விற்க விரும்புகிறேன். விவரங்கள்:`,`பெயர்: ${d.name}`,`தொலைபேசி: ${d.phone}`,`கார்: ${d.year} ${d.brand} ${d.model}`,`ஓடிய கி.மீ: ${d.km}`,`எதிர்பார்க்கும் விலை: ${d.price}`, d.notes?`குறிப்புகள்: ${d.notes}`:null].filter(Boolean).join('\n')
+  }
+};
+
+/* ============================================================
+   I18N DICTIONARY
+   ============================================================ */
+const I18N = {
+  en: {
+    brand_sub:"Rasipuram · TN", nav_home:"Home", nav_sell:"Sell Your Car", nav_about:"About", nav_contact:"Contact",
+    btn_call:"Call", btn_whatsapp_us:"WhatsApp Us", label_whatsapp:"WhatsApp",
+    hero_h1:"Buy & sell used cars the straightforward way.",
+    hero_lede:"Sri Saravanaa Cars has served buyers and sellers around Rasipuram with inspected vehicles, honest pricing and paperwork handled end to end.",
+    hero_cta_primary:"Get a Free Quote",
+    trust_verified:"Verified Cars", trust_fair:"Fair Price", trust_exchange:"Easy Exchange", trust_finance:"Finance Assistance",
+    services_eyebrow:"What We Do", services_heading:"Buying or selling, we make it simple",
+    service_buy_title:"Buy a Used Car", service_buy_desc:"Visit the showroom or call us — we'll help you find a reliable car for your budget.",
+    service_sell_title:"Sell Your Car", service_sell_desc:"Get a fair, no-obligation quote for your car in minutes.",
+    service_exchange_title:"Exchange & Upgrade", service_exchange_desc:"Trade in your current car towards your next one, hassle-free.",
+    service_finance_title:"Loan & Finance Help", service_finance_desc:"We assist with financing options so you can drive away sooner.",
+    sell_cta_eyebrow:"Selling?", sell_cta_heading:"Have a car to sell?", sell_cta_text:"Tell us your car's details and get a fair, no-obligation quote.", sell_cta_btn:"Get a Free Quote",
+    location_eyebrow:"Visit the Showroom", location_heading:"Find us in Rasipuram", location_directions:"Get Directions",
+    location_also_from:"Buyers & sellers also reach us from", map_caption:'Schematic route sketch — tap "Get Directions" for live navigation',
+    about_eyebrow:"Our Story", about_heading:"About Sri Saravanaa Cars",
+    about_story:"Sri Saravanaa Cars has served buyers and sellers in Rasipuram with a simple promise: honest pricing, verified vehicles, and a hassle-free experience — whether you're buying your first car or upgrading, or selling one without the usual back-and-forth.",
+    about_owner_note:"Owner note — replace this paragraph with your dealership's real story",
+    about_buying_heading:"How buying works",
+    about_buy_1:"Visit the showroom or call us to see the cars currently available.",
+    about_buy_2:"Inspect and test-drive the car of your choice.",
+    about_buy_3:"We assist with paperwork, RC transfer and financing.",
+    about_buy_4:"Drive away with confidence.",
+    about_selling_heading:"How selling works",
+    about_sell_1:"Share your car's details on the Sell Your Car page.",
+    about_sell_2:"We evaluate the vehicle and offer a transparent quote.",
+    about_sell_3:"Agree on price — we handle the paperwork.",
+    about_sell_4:"Get paid quickly, no delays.",
+    about_areas_heading:"Serving Rasipuram & nearby",
+    sell_heading:"Sell your car for a fair price", sell_sub:"Fill in your car's details — we'll reply with a quote on WhatsApp.",
+    field_name:"Your Name", field_phone:"Phone Number", field_brand:"Car Brand", field_model:"Model", field_year:"Year", field_km:"KM Driven", field_price:"Expected Price", field_notes:"Additional Notes (optional)",
+    ph_name:"e.g. Karthik", ph_phone:"e.g. 98765 43210", ph_brand:"e.g. Maruti Suzuki", ph_model:"e.g. Swift VDI", ph_notes:"Condition, service history, accessories, etc.",
+    sell_submit:"Send Details on WhatsApp", sell_note:"Opens WhatsApp with your details pre-filled — nothing is stored on this site.",
+    footer_quicklinks:"Quick Links", footer_contact:"Contact",
+    title_home:"Sri Saravanaa Cars", title_sell:"Sell Your Car — Sri Saravanaa Cars", title_about:"About — Sri Saravanaa Cars"
+  },
+  ta: {
+    brand_sub:"ராசிபுரம் · தமிழ்நாடு", nav_home:"முகப்பு", nav_sell:"கார் விற்க", nav_about:"எங்களை பற்றி", nav_contact:"தொடர்பு",
+    btn_call:"அழைக்க", btn_whatsapp_us:"வாட்ஸ்அப்பில் தொடர்பு கொள்ள", label_whatsapp:"வாட்ஸ்அப்",
+    hero_h1:"பயன்படுத்திய கார்களை நேர்மையாக வாங்கவும், விற்கவும்.",
+    hero_lede:"ஸ்ரீ சரவணா கார்ஸ், ராசிபுரம் மற்றும் சுற்றியுள்ள பகுதிகளில் வாங்குபவர்களுக்கும் விற்பவர்களுக்கும் ஆய்வு செய்யப்பட்ட வாகனங்கள், நேர்மையான விலை மற்றும் முழு ஆவணப் பணிகளுடன் சேவை செய்து வருகிறது.",
+    hero_cta_primary:"இலவச மதிப்பீடு பெறுக",
+    trust_verified:"சரிபார்க்கப்பட்ட கார்கள்", trust_fair:"நியாயமான விலை", trust_exchange:"எளிதான மாற்று", trust_finance:"நிதி உதவி",
+    services_eyebrow:"நாங்கள் செய்வது", services_heading:"வாங்கினாலும் விற்றாலும், எளிதாக்குகிறோம்",
+    service_buy_title:"பயன்படுத்திய கார் வாங்குங்கள்", service_buy_desc:"காட்சியகத்திற்கு வாருங்கள் அல்லது எங்களை அழைக்கவும் — உங்கள் பட்ஜெட்டிற்கு ஏற்ற நம்பகமான காரை கண்டுபிடிக்க உதவுவோம்.",
+    service_sell_title:"உங்கள் காரை விற்கவும்", service_sell_desc:"உங்கள் காருக்கு நிமிடங்களில் நியாயமான மதிப்பீடு பெறுங்கள்.",
+    service_exchange_title:"மாற்று & மேம்படுத்தல்", service_exchange_desc:"உங்கள் தற்போதைய காரை சிரமமின்றி அடுத்த காருக்கு மாற்றிக் கொள்ளுங்கள்.",
+    service_finance_title:"கடன் & நிதி உதவி", service_finance_desc:"நீங்கள் விரைவில் காரை ஓட்டிச் செல்ல நிதி விருப்பங்களில் உதவுகிறோம்.",
+    sell_cta_eyebrow:"விற்க விரும்புகிறீர்களா?", sell_cta_heading:"விற்க ஒரு கார் இருக்கிறதா?", sell_cta_text:"உங்கள் காரின் விவரங்களைச் சொல்லுங்கள், நியாயமான மதிப்பீட்டைப் பெறுங்கள்.", sell_cta_btn:"இலவச மதிப்பீடு பெறுக",
+    location_eyebrow:"காட்சியகத்திற்கு வாருங்கள்", location_heading:"ராசிபுரத்தில் எங்களைக் கண்டுபிடியுங்கள்", location_directions:"வழி காட்டு",
+    location_also_from:"வாங்குபவர்களும் விற்பவர்களும் இந்த பகுதிகளில் இருந்தும் தொடர்பு கொள்கிறார்கள்", map_caption:'விளக்கப்பட வரைபடம் — நேரடி வழிகாட்டலுக்கு "வழி காட்டு" பொத்தானை அழுத்தவும்',
+    about_eyebrow:"எங்கள் கதை", about_heading:"ஸ்ரீ சரவணா கார்ஸ் பற்றி",
+    about_story:"ஸ்ரீ சரவணா கார்ஸ், ராசிபுரத்தில் வாங்குபவர்களுக்கும் விற்பவர்களுக்கும் ஒரு எளிய உறுதிமொழியுடன் சேவை செய்து வருகிறது: நேர்மையான விலை, சரிபார்க்கப்பட்ட வாகனங்கள், மற்றும் சிரமமில்லாத அனுபவம் — முதல் காரை வாங்கினாலும் சரி, மேம்படுத்தினாலும் சரி, அல்லது வழக்கமான பேரம் பேசாமல் விற்றாலும் சரி.",
+    about_owner_note:"உரிமையாளர் குறிப்பு — இந்த பத்தியை உங்கள் நிறுவனத்தின் உண்மையான கதையுடன் மாற்றவும்",
+    about_buying_heading:"வாங்குவது எப்படி",
+    about_buy_1:"தற்போது கிடைக்கும் கார்களைப் பார்க்க காட்சியகத்திற்கு வாருங்கள் அல்லது எங்களை அழைக்கவும்.",
+    about_buy_2:"நீங்கள் தேர்ந்தெடுக்கும் காரை பரிசோதித்து ஓட்டிப் பாருங்கள்.",
+    about_buy_3:"ஆவணப் பணிகள், RC மாற்றம் மற்றும் நிதி உதவியில் நாங்கள் உதவுவோம்.",
+    about_buy_4:"நம்பிக்கையுடன் காரை ஓட்டிச் செல்லுங்கள்.",
+    about_selling_heading:"விற்பது எப்படி",
+    about_sell_1:"கார் விற்க பக்கத்தில் உங்கள் காரின் விவரங்களைப் பகிரவும்.",
+    about_sell_2:"வாகனத்தை மதிப்பீடு செய்து வெளிப்படையான விலையை வழங்குவோம்.",
+    about_sell_3:"விலையை உறுதி செய்யவும் — ஆவணப் பணிகளை நாங்கள் கவனித்துக் கொள்வோம்.",
+    about_sell_4:"தாமதமின்றி விரைவாக பணம் பெறுங்கள்.",
+    about_areas_heading:"ராசிபுரம் மற்றும் சுற்றுவட்டாரப் பகுதிகளுக்கு சேவை",
+    sell_heading:"உங்கள் காரை நியாயமான விலைக்கு விற்கவும்", sell_sub:"உங்கள் காரின் விவரங்களை பூர்த்தி செய்யவும் — வாட்ஸ்அப்பில் மதிப்பீட்டுடன் பதிலளிப்போம்.",
+    field_name:"உங்கள் பெயர்", field_phone:"தொலைபேசி எண்", field_brand:"கார் நிறுவனம்", field_model:"மாடல்", field_year:"ஆண்டு", field_km:"ஓடிய கி.மீ", field_price:"எதிர்பார்க்கும் விலை", field_notes:"கூடுதல் குறிப்புகள் (விருப்பம்)",
+    ph_name:"எ.கா. கார்த்திக்", ph_phone:"எ.கா. 98765 43210", ph_brand:"எ.கா. மாருதி சுசுகி", ph_model:"எ.கா. Swift VDI", ph_notes:"நிலை, சர்வீஸ் வரலாறு, துணைக்கருவிகள் போன்றவை.",
+    sell_submit:"வாட்ஸ்அப்பில் விவரங்களை அனுப்பவும்", sell_note:"உங்கள் விவரங்களுடன் வாட்ஸ்அப் திறக்கும் — இந்த தளத்தில் எதுவும் சேமிக்கப்படாது.",
+    footer_quicklinks:"விரைவு இணைப்புகள்", footer_contact:"தொடர்பு",
+    title_home:"Sri Saravanaa Cars", title_sell:"கார் விற்க — Sri Saravanaa Cars", title_about:"எங்களை பற்றி — Sri Saravanaa Cars"
+  }
+};
+
+let currentLang = 'en';
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+function waLink(msg){ return `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(msg)}`; }
+function telLink(){ return `tel:${SITE_CONFIG.phoneTel}`; }
+
+/* ============================================================
+   LANGUAGE
+   ============================================================ */
+function applyLanguage(lang){
+  currentLang = (lang === 'ta') ? 'ta' : 'en';
+  document.documentElement.lang = currentLang;
+  document.body.classList.toggle('lang-ta', currentLang === 'ta');
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    const val = I18N[currentLang][key];
+    if(val !== undefined) el.textContent = val;
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-placeholder');
+    const val = I18N[currentLang][key];
+    if(val !== undefined) el.placeholder = val;
+  });
+  document.querySelectorAll('.lang-btn').forEach(b=> b.classList.toggle('active', b.dataset.lang === currentLang));
+  populateContactPoints();
+  try{ localStorage.setItem('lang', currentLang); }catch(e){}
+  const { name } = currentRoute();
+  const active = ['home','sell','about'].includes(name) ? name : 'home';
+  document.title = I18N[currentLang]['title_'+active] || SITE_CONFIG.businessName;
+}
+function initLanguage(){
+  let saved = 'en';
+  try{ saved = localStorage.getItem('lang') || 'en'; }catch(e){}
+  document.querySelectorAll('.lang-btn').forEach(b=> b.addEventListener('click', ()=> applyLanguage(b.dataset.lang)));
+  applyLanguage(saved);
+}
+
+/* ============================================================
+   THEME
+   ============================================================ */
+function getEffectiveTheme(){
+  const attr = document.documentElement.getAttribute('data-theme');
+  if(attr) return attr;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+function updateThemeIcons(){
+  const isDark = getEffectiveTheme() === 'dark';
+  ['themeIcon','themeIconMobile'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.innerHTML = isDark ? '<use href="#i-sun"/>' : '<use href="#i-moon"/>';
+  });
+}
+function setTheme(next){
+  document.documentElement.setAttribute('data-theme', next);
+  try{ localStorage.setItem('theme', next); }catch(e){}
+  updateThemeIcons();
+}
+function initTheme(){
+  let saved = null;
+  try{ saved = localStorage.getItem('theme'); }catch(e){}
+  if(saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+  updateThemeIcons();
+  ['themeToggle','themeToggleMobile'].forEach(id=>{
+    const btn = document.getElementById(id);
+    if(btn) btn.addEventListener('click', ()=> setTheme(getEffectiveTheme() === 'dark' ? 'light' : 'dark'));
+  });
+}
+
+/* ============================================================
+   CONTACT / CONFIG POPULATION (language-aware)
+   ============================================================ */
+function populateContactPoints(){
+  document.querySelectorAll('[data-cfg]').forEach(el=>{
+    const key = el.getAttribute('data-cfg');
+    const val = key.split('.').reduce((o,k)=>o?o[k]:undefined, SITE_CONFIG);
+    if(val!==undefined) el.textContent = val;
+  });
+  document.querySelectorAll('[data-cfg-href]').forEach(el=>{
+    const t = el.getAttribute('data-cfg-href');
+    if(t==='tel') el.href = telLink();
+    if(t==='whatsapp') el.href = waLink(MSG[currentLang].generic(SITE_CONFIG.businessName));
+    if(t==='directions') el.href = SITE_CONFIG.map.directionsUrl;
+    if(t==='mailto') el.href = `mailto:${SITE_CONFIG.email}`;
+  });
+  const hoursList = document.getElementById('hoursList');
+  if(hoursList) hoursList.innerHTML = HOURS[currentLang].map(h=>`<div class="hours-row"><span>${h.day}</span><span class="mono" style="font-weight:600;">${h.time}</span></div>`).join('');
+  const addressBlock = document.getElementById('addressBlock');
+  if(addressBlock){ const a = ADDRESS[currentLang]; addressBlock.innerHTML = `${a.line1}<br>${a.line2}<br>${a.line3} – ${a.pincode}`; }
+  const contactNumbers = document.getElementById('contactNumbers');
+  if(contactNumbers){
+    contactNumbers.innerHTML = `
+      <a href="${telLink()}" style="color:var(--ink);"><strong>${I18N[currentLang].btn_call}:</strong> ${SITE_CONFIG.phoneDisplay}</a>
+      <a href="${waLink(MSG[currentLang].generic(SITE_CONFIG.businessName))}" target="_blank" rel="noopener" style="color:var(--wa);"><strong>${I18N[currentLang].label_whatsapp}:</strong> ${SITE_CONFIG.whatsappDisplay}</a>`;
+  }
+  ['serviceAreas','serviceAreasAbout'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.innerHTML = SERVICE_AREAS[currentLang].map(t=>`<span class="chip-town">${t}</span>`).join('');
+  });
+  const fw = document.getElementById('floatingWhatsapp');
+  if(fw) fw.href = waLink(MSG[currentLang].generic(SITE_CONFIG.businessName));
+  const yearEl = document.getElementById('year');
+  if(yearEl) yearEl.textContent = new Date().getFullYear();
+}
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+function initMobileMenu(){
+  const btn = document.getElementById('menuToggle');
+  const drawer = document.getElementById('mobileDrawer');
+  const icon = document.getElementById('menuIcon');
+  if(!btn||!drawer) return;
+  btn.addEventListener('click', ()=>{
+    const open = drawer.classList.toggle('open');
+    icon.innerHTML = open ? '<use href="#i-close"/>' : '<use href="#i-menu"/>';
+  });
+  drawer.querySelectorAll('a.mnav').forEach(a=>a.addEventListener('click', ()=>{ drawer.classList.remove('open'); icon.innerHTML='<use href="#i-menu"/>'; }));
+}
+
+/* ============================================================
+   SELL FORM
+   ============================================================ */
+function initSellForm(){
+  const form = document.getElementById('sellForm');
+  if(!form || form.dataset.bound) return;
+  form.dataset.bound = "1";
+  form.addEventListener('submit', e=>{
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(form).entries());
+    window.open(waLink(MSG[currentLang].sell(d)), '_blank');
+  });
+}
+
+/* ============================================================
+   ROUTER
+   ============================================================ */
+const ROUTES = ['home','sell','about'];
+function currentRoute(){
+  const hash = location.hash.replace(/^#\/?/, '');
+  const [name] = hash.split('/');
+  return { name: name || 'home' };
+}
+function render(){
+  const { name } = currentRoute();
+  const isContact = name === 'contact';
+  const active = ROUTES.includes(name) ? name : 'home';
+  ROUTES.forEach(r=>{ const el = document.getElementById('view-'+r); if(el) el.hidden = (r !== active); });
+  document.querySelectorAll('nav.primary a[data-route], .mobile-drawer a.mnav[data-route]').forEach(a=>{
+    a.classList.toggle('active', a.dataset.route === active && !isContact);
+  });
+  document.title = I18N[currentLang]['title_'+active] || SITE_CONFIG.businessName;
+  if(isContact){
+    requestAnimationFrame(()=> document.getElementById('homeLocation')?.scrollIntoView({ behavior:'smooth', block:'start' }));
+  } else {
+    window.scrollTo(0,0);
+  }
+}
+
+/* ============================================================
+   BOOT
+   ============================================================ */
+function boot(){
+  initTheme();
+  initLanguage();
+  initMobileMenu();
+  initSellForm();
+  window.addEventListener('hashchange', render);
+  render();
+}
+document.addEventListener('DOMContentLoaded', boot);
+</script>
