@@ -1,0 +1,12 @@
+{
+  "name": "Sri Saravanaa Cars",
+  "short_name": "Sri Saravanaa Cars",
+  "description": "Buy & sell used cars in Rasipuram, Namakkal District, Tamil Nadu.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#EEF0F1",
+  "theme_color": "#17643F",
+  "icons": [
+    { "src": "assets/img/logo.jpg", "sizes": "500x500", "type": "image/jpeg", "purpose": "any maskable" }
+  ]
+}

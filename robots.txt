@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://srisaravanaacars.example.in/sitemap.xml

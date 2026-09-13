@@ -1,6 +1,53 @@
 <title>Sri Saravanaa Cars</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Sri Saravanaa Cars, Rasipuram — trusted used car dealer for buying and selling pre-owned cars in Rasipuram, Namakkal, Tiruchengode and nearby towns.">
+<link rel="canonical" href="https://srisaravanaacars.example.in/">
+<!-- NOTE: replace srisaravanaacars.example.in with your real domain once hosted (canonical tag, Open Graph/Twitter urls, robots.txt, sitemap.xml) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sri Saravanaa Cars">
+<meta property="og:title" content="Sri Saravanaa Cars — Buy & Sell Used Cars in Rasipuram">
+<meta property="og:description" content="Trusted used car dealer in Rasipuram since 2016 — 1000+ cars bought & sold, 1000+ happy customers. Verified vehicles, fair pricing, easy exchange & finance help.">
+<meta property="og:image" content="https://srisaravanaacars.example.in/assets/img/logo.jpg">
+<meta property="og:url" content="https://srisaravanaacars.example.in/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sri Saravanaa Cars — Buy & Sell Used Cars in Rasipuram">
+<meta name="twitter:description" content="Trusted used car dealer in Rasipuram since 2016 — 1000+ cars bought & sold, 1000+ happy customers.">
+<meta name="twitter:image" content="https://srisaravanaacars.example.in/assets/img/logo.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoDealer",
+  "name": "Sri Saravanaa Cars",
+  "image": "https://srisaravanaacars.example.in/assets/img/logo.jpg",
+  "url": "https://srisaravanaacars.example.in/",
+  "telephone": "+919443602022",
+  "priceRange": "₹₹",
+  "foundingDate": "2016",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Tiruchengode Main Road, Near PSK Complex, Koonavelampatti, Andagalur Gate Flyover, Kurukkapuram",
+    "addressLocality": "Rasipuram",
+    "addressRegion": "Tamil Nadu",
+    "postalCode": "637401",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 11.4436236, "longitude": 78.1494674 },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "09:30", "closes": "20:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "10:00", "closes": "18:00" }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/srisaravanaacars/",
+    "https://www.instagram.com/srisaravanaacars/",
+    "https://www.youtube.com/@srisaravanaacars"
+  ]
+}
+</script>
 <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+<link rel="apple-touch-icon" href="assets/img/logo.jpg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#17643F">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
@@ -117,6 +164,14 @@
   @keyframes drawRoute{ to{ stroke-dashoffset:0; } }
   @media (prefers-reduced-motion: reduce){ .route-svg path.route{ stroke-dashoffset:0; } }
 
+  .stats-strip{ background:var(--accent); }
+  .stats-row{ display:grid; grid-template-columns:repeat(3,1fr); }
+  .stat-item{ text-align:center; padding:26px 16px; border-right:1px solid color-mix(in srgb, var(--accent-ink) 25%, transparent); }
+  .stat-item:last-child{ border-right:none; }
+  .stat-num{ font-weight:700; font-size:2rem; color:var(--accent-ink); line-height:1; }
+  .stat-label{ font-size:.8rem; font-weight:600; color:var(--accent-ink); opacity:.85; margin-top:6px; }
+  @media (max-width:860px){ .stats-row{ grid-template-columns:1fr; } .stat-item{ border-right:none; border-bottom:1px solid color-mix(in srgb, var(--accent-ink) 25%, transparent); } .stat-item:last-child{ border-bottom:none; } }
+
   .trust-strip{ border-top:1px solid var(--line); background:var(--surface); }
   .trust-row{ display:grid; grid-template-columns:repeat(4,1fr); }
   .trust-item{ display:flex; align-items:center; gap:10px; padding:18px 16px; border-right:1px solid var(--line); }
@@ -175,6 +230,10 @@
   footer.site a{ display:block; padding-block:3px; color:#C7CDD1; }
   footer.site a:hover{ color:#fff; }
   .footer-bottom{ text-align:center; font-size:.74rem; color:#7C868D; margin-top:34px; font-family:var(--font-mono); }
+  .social-row{ display:flex; justify-content:center; gap:14px; margin-top:32px; }
+  .social-row a.social-btn{ width:38px; height:38px; padding:0; border-radius:50%; border:1px solid #2C3237; display:flex; align-items:center; justify-content:center; color:#C7CDD1; }
+  .social-row a.social-btn:hover{ color:#fff; border-color:#7C868D; }
+  .social-row .icon{ width:18px; height:18px; }
 
   .floating-wa{ position:fixed; right:18px; bottom:18px; z-index:50; width:52px; height:52px; border-radius:50%; background:var(--wa); color:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 24px -6px rgba(0,0,0,.4); }
   .floating-wa .icon{ width:24px; height:24px; stroke:none; fill:#fff; }
@@ -183,7 +242,7 @@
 <svg style="display:none" aria-hidden="true">
   <symbol id="i-car" viewBox="0 0 24 24"><path d="M3 15.5V12l1.8-4.6A2 2 0 0 1 6.7 6h10.6a2 2 0 0 1 1.9 1.4L21 12v3.5"/><path d="M3 15.5h18M6 15.5V18M18 15.5V18"/><circle cx="7.5" cy="15.5" r="1.6"/><circle cx="16.5" cy="15.5" r="1.6"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
-  <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v9M9.3 15c0 1 1.1 1.8 2.7 1.8s2.7-.7 2.7-1.7c0-2.6-5.4-1.2-5.4-3.8 0-1 1.1-1.7 2.7-1.7s2.7.7 2.7 1.7"/></symbol>
+  <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><g transform="translate(12 12) scale(.7) translate(-12 -12)"><path d="M6 3h12"/><path d="M6 8h12"/><path d="m6 13 8.5 8"/><path d="M6 13h3"/><path d="M9 13c6.667 0 6.667-10 0-10"/></g></symbol>
   <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h13l-3-3M20 16H7l3 3"/></symbol>
   <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.5l7 2.6v5.4c0 4.6-3 7.8-7 9-4-1.2-7-4.4-7-9V6.1l7-2.6z"/><path d="M9 12l2.2 2.2L15.5 9.5"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3.5h3l1.4 4-2 1.6a12 12 0 0 0 6.5 6.5l1.6-2 4 1.4v3a2 2 0 0 1-2.2 2C11 19.6 4.4 13 4 5.7A2 2 0 0 1 6 3.5z"/></symbol>
@@ -193,6 +252,9 @@
   <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/></symbol>
   <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.2A8.5 8.5 0 1 1 9.8 4a6.8 6.8 0 0 0 10.2 10.2z"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><g transform="translate(12 12) scale(.85) translate(-12 -12)"><path d="M13.5 21v-7.5H16l.5-3h-3V8.5c0-.9.3-1.5 1.6-1.5H16V4.3C15.7 4.3 14.7 4 13.6 4c-2.3 0-3.9 1.4-3.9 4v2.5H7v3h2.7V21z" fill="currentColor" stroke="none"/></g></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17" cy="7" r="0.7" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-youtube" viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="12" rx="4"/><path d="M10.3 9v6l5.2-3z" fill="currentColor" stroke="none"/></symbol>
 </svg>
 
 <!-- ============ TOPBAR ============ -->
@@ -242,7 +304,7 @@
       <div>
         <p class="hero-line tagline-ta">உங்கள் நம்பகமான கார் டீலர்</p>
         <h1 class="hero-line" data-i18n="hero_h1">Buy &amp; sell used cars the straightforward way.</h1>
-        <p class="hero-line lede" data-i18n="hero_lede">Sri Saravanaa Cars has served buyers and sellers around Rasipuram with inspected vehicles, honest pricing and paperwork handled end to end.</p>
+        <p class="hero-line lede" data-i18n="hero_lede">Since 2016, Sri Saravanaa Cars has served buyers and sellers around Rasipuram — 1000+ cars bought and sold, and 1000+ satisfied customers trusting us for inspected vehicles, honest pricing and paperwork handled end to end.</p>
         <div class="hero-line hero-ctas">
           <a href="#/sell" class="btn btn-solid btn-lg" data-i18n="hero_cta_primary">Get a Free Quote</a>
           <a data-cfg-href="whatsapp" href="#" target="_blank" rel="noopener" class="btn btn-wa btn-lg"><svg class="icon"><use href="#i-wa"/></svg><span data-i18n="btn_whatsapp_us">WhatsApp Us</span></a>
@@ -264,6 +326,14 @@
           <text x="205" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="var(--ink-faint)" letter-spacing="1">RASIPURAM &middot; NAMAKKAL DT.</text>
         </svg>
       </div>
+    </div>
+  </section>
+
+  <section class="stats-strip">
+    <div class="wrap stats-row">
+      <div class="stat-item"><div class="stat-num mono" id="statYears">10+</div><div class="stat-label" data-i18n="stat_years">Years in the Industry</div></div>
+      <div class="stat-item"><div class="stat-num mono">1000+</div><div class="stat-label" data-i18n="stat_cars">Cars Bought &amp; Sold</div></div>
+      <div class="stat-item"><div class="stat-num mono">1000+</div><div class="stat-label" data-i18n="stat_customers">Happy Customers</div></div>
     </div>
   </section>
 
@@ -364,8 +434,7 @@
   <section class="block wrap">
     <span class="eyebrow" data-i18n="about_eyebrow">Our Story</span>
     <h2 style="margin-top:6px;" data-i18n="about_heading">About Sri Saravanaa Cars</h2>
-    <p style="color:var(--ink-soft); max-width:64ch; margin-top:12px;" data-i18n="about_story">Sri Saravanaa Cars has served buyers and sellers in Rasipuram with a simple promise: honest pricing, verified vehicles, and a hassle-free experience — whether you're buying your first car or upgrading, or selling one without the usual back-and-forth.</p>
-    <p class="tag-note" style="margin-top:14px;" data-i18n="about_owner_note">Owner note — replace this paragraph with your dealership's real story</p>
+    <p style="color:var(--ink-soft); max-width:64ch; margin-top:12px;" data-i18n="about_story">Since 2016, Sri Saravanaa Cars has served buyers and sellers in Rasipuram with a simple promise: honest pricing, verified vehicles, and a hassle-free experience — whether you're buying your first car or upgrading, or selling one without the usual back-and-forth. Over the years we've helped with 1000+ cars bought and sold, earning the trust of 1000+ customers across the region.</p>
 
     <div class="two-col" style="margin-top:46px;">
       <div>
@@ -415,7 +484,12 @@
       <a data-cfg-href="mailto" href="#" data-cfg="email"></a>
     </div>
   </div>
-  <p class="footer-bottom">© <span id="year"></span> SRI SARAVANAA CARS · RASIPURAM, TN</p>
+  <div class="social-row">
+    <a class="social-btn" href="https://www.facebook.com/srisaravanaacars/" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon"><use href="#i-facebook"/></svg></a>
+    <a class="social-btn" href="https://www.instagram.com/srisaravanaacars/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon"><use href="#i-instagram"/></svg></a>
+    <a class="social-btn" href="https://www.youtube.com/@srisaravanaacars" target="_blank" rel="noopener" aria-label="YouTube"><svg class="icon"><use href="#i-youtube"/></svg></a>
+  </div>
+  <p class="footer-bottom">© 2016–<span id="year"></span> SRI SARAVANAA CARS · RASIPURAM, TN</p>
 </footer>
 
 <a id="floatingWhatsapp" href="#" target="_blank" rel="noopener" class="floating-wa" aria-label="Chat on WhatsApp"><svg class="icon"><use href="#i-wa"/></svg></a>
@@ -465,8 +539,9 @@ const I18N = {
     brand_sub:"Rasipuram · TN", nav_home:"Home", nav_sell:"Sell Your Car", nav_about:"About", nav_contact:"Contact",
     btn_call:"Call", btn_whatsapp_us:"WhatsApp Us", label_whatsapp:"WhatsApp",
     hero_h1:"Buy & sell used cars the straightforward way.",
-    hero_lede:"Sri Saravanaa Cars has served buyers and sellers around Rasipuram with inspected vehicles, honest pricing and paperwork handled end to end.",
+    hero_lede:"Since 2016, Sri Saravanaa Cars has served buyers and sellers around Rasipuram — 1000+ cars bought and sold, and 1000+ satisfied customers trusting us for inspected vehicles, honest pricing and paperwork handled end to end.",
     hero_cta_primary:"Get a Free Quote",
+    stat_years:"Years in the Industry", stat_cars:"Cars Bought & Sold", stat_customers:"Happy Customers",
     trust_verified:"Verified Cars", trust_fair:"Fair Price", trust_exchange:"Easy Exchange", trust_finance:"Finance Assistance",
     services_eyebrow:"What We Do", services_heading:"Buying or selling, we make it simple",
     service_buy_title:"Buy a Used Car", service_buy_desc:"Visit the showroom or call us — we'll help you find a reliable car for your budget.",
@@ -477,8 +552,7 @@ const I18N = {
     location_eyebrow:"Visit the Showroom", location_heading:"Find us in Rasipuram", location_directions:"Get Directions",
     location_also_from:"Buyers & sellers also reach us from", map_caption:'Schematic route sketch — tap "Get Directions" for live navigation',
     about_eyebrow:"Our Story", about_heading:"About Sri Saravanaa Cars",
-    about_story:"Sri Saravanaa Cars has served buyers and sellers in Rasipuram with a simple promise: honest pricing, verified vehicles, and a hassle-free experience — whether you're buying your first car or upgrading, or selling one without the usual back-and-forth.",
-    about_owner_note:"Owner note — replace this paragraph with your dealership's real story",
+    about_story:"Since 2016, Sri Saravanaa Cars has served buyers and sellers in Rasipuram with a simple promise: honest pricing, verified vehicles, and a hassle-free experience — whether you're buying your first car or upgrading, or selling one without the usual back-and-forth. Over the years we've helped with 1000+ cars bought and sold, earning the trust of 1000+ customers across the region.",
     about_buying_heading:"How buying works",
     about_buy_1:"Visit the showroom or call us to see the cars currently available.",
     about_buy_2:"Inspect and test-drive the car of your choice.",
@@ -501,8 +575,9 @@ const I18N = {
     brand_sub:"ராசிபுரம் · தமிழ்நாடு", nav_home:"முகப்பு", nav_sell:"கார் விற்க", nav_about:"எங்களை பற்றி", nav_contact:"தொடர்பு",
     btn_call:"அழைக்க", btn_whatsapp_us:"வாட்ஸ்அப்பில் தொடர்பு கொள்ள", label_whatsapp:"வாட்ஸ்அப்",
     hero_h1:"பயன்படுத்திய கார்களை நேர்மையாக வாங்கவும், விற்கவும்.",
-    hero_lede:"ஸ்ரீ சரவணா கார்ஸ், ராசிபுரம் மற்றும் சுற்றியுள்ள பகுதிகளில் வாங்குபவர்களுக்கும் விற்பவர்களுக்கும் ஆய்வு செய்யப்பட்ட வாகனங்கள், நேர்மையான விலை மற்றும் முழு ஆவணப் பணிகளுடன் சேவை செய்து வருகிறது.",
+    hero_lede:"2016 ஆம் ஆண்டு முதல், ஸ்ரீ சரவணா கார்ஸ், ராசிபுரம் மற்றும் சுற்றியுள்ள பகுதிகளில் வாங்குபவர்களுக்கும் விற்பவர்களுக்கும் சேவை செய்து வருகிறது — 1000+ கார்கள் வாங்கப்பட்டு விற்கப்பட்டு, 1000+ மகிழ்ச்சியான வாடிக்கையாளர்கள் எங்களை நம்பி, ஆய்வு செய்யப்பட்ட வாகனங்கள், நேர்மையான விலை மற்றும் முழு ஆவணப் பணிகளைப் பெற்றுள்ளனர்.",
     hero_cta_primary:"இலவச மதிப்பீடு பெறுக",
+    stat_years:"ஆண்டுகள் அனுபவம்", stat_cars:"கார்கள் வாங்கப்பட்டு விற்கப்பட்டன", stat_customers:"மகிழ்ச்சியான வாடிக்கையாளர்கள்",
     trust_verified:"சரிபார்க்கப்பட்ட கார்கள்", trust_fair:"நியாயமான விலை", trust_exchange:"எளிதான மாற்று", trust_finance:"நிதி உதவி",
     services_eyebrow:"நாங்கள் செய்வது", services_heading:"வாங்கினாலும் விற்றாலும், எளிதாக்குகிறோம்",
     service_buy_title:"பயன்படுத்திய கார் வாங்குங்கள்", service_buy_desc:"காட்சியகத்திற்கு வாருங்கள் அல்லது எங்களை அழைக்கவும் — உங்கள் பட்ஜெட்டிற்கு ஏற்ற நம்பகமான காரை கண்டுபிடிக்க உதவுவோம்.",
@@ -513,8 +588,7 @@ const I18N = {
     location_eyebrow:"காட்சியகத்திற்கு வாருங்கள்", location_heading:"ராசிபுரத்தில் எங்களைக் கண்டுபிடியுங்கள்", location_directions:"வழி காட்டு",
     location_also_from:"வாங்குபவர்களும் விற்பவர்களும் இந்த பகுதிகளில் இருந்தும் தொடர்பு கொள்கிறார்கள்", map_caption:'விளக்கப்பட வரைபடம் — நேரடி வழிகாட்டலுக்கு "வழி காட்டு" பொத்தானை அழுத்தவும்',
     about_eyebrow:"எங்கள் கதை", about_heading:"ஸ்ரீ சரவணா கார்ஸ் பற்றி",
-    about_story:"ஸ்ரீ சரவணா கார்ஸ், ராசிபுரத்தில் வாங்குபவர்களுக்கும் விற்பவர்களுக்கும் ஒரு எளிய உறுதிமொழியுடன் சேவை செய்து வருகிறது: நேர்மையான விலை, சரிபார்க்கப்பட்ட வாகனங்கள், மற்றும் சிரமமில்லாத அனுபவம் — முதல் காரை வாங்கினாலும் சரி, மேம்படுத்தினாலும் சரி, அல்லது வழக்கமான பேரம் பேசாமல் விற்றாலும் சரி.",
-    about_owner_note:"உரிமையாளர் குறிப்பு — இந்த பத்தியை உங்கள் நிறுவனத்தின் உண்மையான கதையுடன் மாற்றவும்",
+    about_story:"2016 ஆம் ஆண்டு முதல், ஸ்ரீ சரவணா கார்ஸ், ராசிபுரத்தில் வாங்குபவர்களுக்கும் விற்பவர்களுக்கும் ஒரு எளிய உறுதிமொழியுடன் சேவை செய்து வருகிறது: நேர்மையான விலை, சரிபார்க்கப்பட்ட வாகனங்கள், மற்றும் சிரமமில்லாத அனுபவம் — முதல் காரை வாங்கினாலும் சரி, மேம்படுத்தினாலும் சரி, அல்லது வழக்கமான பேரம் பேசாமல் விற்றாலும் சரி. இதுவரை 1000+ கார்கள் வாங்கி விற்று, 1000+ வாடிக்கையாளர்களின் நம்பிக்கையை பெற்றுள்ளோம்.",
     about_buying_heading:"வாங்குவது எப்படி",
     about_buy_1:"தற்போது கிடைக்கும் கார்களைப் பார்க்க காட்சியகத்திற்கு வாருங்கள் அல்லது எங்களை அழைக்கவும்.",
     about_buy_2:"நீங்கள் தேர்ந்தெடுக்கும் காரை பரிசோதித்து ஓட்டிப் பாருங்கள்.",
@@ -698,11 +772,17 @@ function render(){
 /* ============================================================
    BOOT
    ============================================================ */
+function initStats(){
+  const el = document.getElementById('statYears');
+  if(el) el.textContent = (new Date().getFullYear() - 2016) + '+';
+}
+
 function boot(){
   initTheme();
   initLanguage();
   initMobileMenu();
   initSellForm();
+  initStats();
   window.addEventListener('hashchange', render);
   render();
 }
