@@ -108,11 +108,23 @@
   .wrap{ max-width: 1080px; margin-inline:auto; padding-inline: 20px; }
   .eyebrow{ font-family: var(--font-mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color: var(--accent); font-weight:600; display:block; }
   @media (prefers-reduced-motion: reduce){ *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; } }
+
+  /* ============ SCROLL REVEAL ============ */
+  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); will-change:opacity,transform; }
+  .reveal.is-visible{ opacity:1; transform:none; }
+  .reveal-group > *{ opacity:0; transform:translateY(22px); transition:opacity .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1); }
+  .reveal-group.is-visible > *{ opacity:1; transform:none; }
+  .reveal-group.is-visible > *:nth-child(1){ transition-delay:.05s; }
+  .reveal-group.is-visible > *:nth-child(2){ transition-delay:.14s; }
+  .reveal-group.is-visible > *:nth-child(3){ transition-delay:.23s; }
+  .reveal-group.is-visible > *:nth-child(4){ transition-delay:.32s; }
   .icon{ width:1em; height:1em; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; display:inline-block; vertical-align:-0.14em; }
 
   /* ============ TOPBAR ============ */
-  .topbar{ position: sticky; top:0; z-index:40; background: color-mix(in srgb, var(--ground) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-  .topbar-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; height:64px; }
+  .topbar{ position: sticky; top:0; z-index:40; background: color-mix(in srgb, var(--ground) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); transition: box-shadow .3s ease, border-color .3s ease; }
+  .topbar.is-scrolled{ box-shadow: var(--shadow); border-bottom-color: transparent; }
+  .topbar-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; height:64px; transition: height .25s ease; }
+  .topbar.is-scrolled .topbar-row{ height:54px; }
   .brand{ display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:800; font-size:1.05rem; }
   .brand small{ display:block; font-family:var(--font-mono); font-weight:600; font-size:.62rem; letter-spacing:.1em; color:var(--ink-faint); text-transform:uppercase; }
   .logo-chip{ display:inline-flex; align-items:center; justify-content:center; background:#fff; border-radius:8px; padding:3px; box-shadow:0 1px 2px rgba(0,0,0,.15); flex-shrink:0; }
@@ -188,7 +200,10 @@
 
   /* ============ SERVICES ============ */
   .svc-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
-  .svc-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-m); padding:22px 20px; }
+  .svc-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-m); padding:22px 20px; transition:opacity .5s cubic-bezier(.2,.7,.2,1), transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .25s ease, border-color .25s ease; }
+  .svc-card:hover{ transform:translateY(-5px); box-shadow:var(--shadow); border-color:var(--accent); }
+  .cta-box{ transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .25s ease; }
+  .cta-box:hover{ transform:translateY(-4px); box-shadow:var(--shadow); }
   .svc-icon{ width:40px; height:40px; border-radius:50%; background:var(--accent-soft); color:var(--accent); display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
   .svc-icon .icon{ width:20px; height:20px; }
   .svc-card h3{ font-family:var(--font-body); font-weight:600; font-size:1rem; margin-bottom:6px; }
@@ -331,14 +346,14 @@
 
   <section class="stats-strip">
     <div class="wrap stats-row">
-      <div class="stat-item"><div class="stat-num mono" id="statYears">10+</div><div class="stat-label" data-i18n="stat_years">Years in the Industry</div></div>
-      <div class="stat-item"><div class="stat-num mono">1000+</div><div class="stat-label" data-i18n="stat_cars">Cars Bought &amp; Sold</div></div>
-      <div class="stat-item"><div class="stat-num mono">1000+</div><div class="stat-label" data-i18n="stat_customers">Happy Customers</div></div>
+      <div class="stat-item"><div class="stat-num mono" id="statYears" data-suffix="+">0+</div><div class="stat-label" data-i18n="stat_years">Years in the Industry</div></div>
+      <div class="stat-item"><div class="stat-num mono" data-target="1000" data-suffix="+">0+</div><div class="stat-label" data-i18n="stat_cars">Cars Bought &amp; Sold</div></div>
+      <div class="stat-item"><div class="stat-num mono" data-target="1000" data-suffix="+">0+</div><div class="stat-label" data-i18n="stat_customers">Happy Customers</div></div>
     </div>
   </section>
 
   <div class="trust-strip">
-    <div class="wrap trust-row">
+    <div class="wrap trust-row reveal-group">
       <div class="trust-item"><svg class="icon"><use href="#i-check"/></svg><span data-i18n="trust_verified">Verified Cars</span></div>
       <div class="trust-item"><svg class="icon"><use href="#i-coin"/></svg><span data-i18n="trust_fair">Fair Price</span></div>
       <div class="trust-item"><svg class="icon"><use href="#i-swap"/></svg><span data-i18n="trust_exchange">Easy Exchange</span></div>
@@ -347,11 +362,11 @@
   </div>
 
   <section class="block wrap">
-    <div class="block-head">
+    <div class="block-head reveal">
       <span class="eyebrow" data-i18n="services_eyebrow">What We Do</span>
       <h2 data-i18n="services_heading">Buying or selling, we make it simple</h2>
     </div>
-    <div class="svc-grid">
+    <div class="svc-grid reveal-group">
       <div class="svc-card"><div class="svc-icon"><svg class="icon"><use href="#i-car"/></svg></div><h3 data-i18n="service_buy_title">Buy a Used Car</h3><p data-i18n="service_buy_desc">Visit the showroom or call us — we'll help you find a reliable car for your budget.</p></div>
       <div class="svc-card"><div class="svc-icon"><svg class="icon"><use href="#i-coin"/></svg></div><h3 data-i18n="service_sell_title">Sell Your Car</h3><p data-i18n="service_sell_desc">Get a fair, no-obligation quote for your car in minutes.</p></div>
       <div class="svc-card"><div class="svc-icon"><svg class="icon"><use href="#i-swap"/></svg></div><h3 data-i18n="service_exchange_title">Exchange &amp; Upgrade</h3><p data-i18n="service_exchange_desc">Trade in your current car towards your next one, hassle-free.</p></div>
@@ -360,7 +375,7 @@
   </section>
 
   <section class="block wrap" style="padding-top:0;">
-    <div style="background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-m); padding:40px 32px; text-align:center;">
+    <div class="reveal cta-box" style="background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-m); padding:40px 32px; text-align:center;">
       <span class="eyebrow" data-i18n="sell_cta_eyebrow">Selling?</span>
       <h2 style="margin-top:6px;" data-i18n="sell_cta_heading">Have a car to sell?</h2>
       <p style="color:var(--ink-soft); max-width:44ch; margin-inline:auto;" data-i18n="sell_cta_text">Tell us your car's details and get a fair, no-obligation quote.</p>
@@ -370,7 +385,7 @@
 
   <section class="location" id="homeLocation">
     <div class="wrap location-grid">
-      <div>
+      <div class="reveal">
         <span class="eyebrow" data-i18n="location_eyebrow">Visit the Showroom</span>
         <h2 style="margin-top:6px;" data-i18n="location_heading">Find us in Rasipuram</h2>
         <p id="addressBlock" style="color:var(--ink-soft); margin-top:10px;"></p>
@@ -384,17 +399,31 @@
         <p style="margin-top:20px; color:var(--ink-faint); font-size:.82rem;" data-i18n="location_also_from">Buyers &amp; sellers also reach us from</p>
         <div id="serviceAreas" style="margin-top:6px;"></div>
       </div>
-      <div class="map-art">
-        <svg viewBox="0 0 300 220">
-          <path d="M20 190 Q 80 40 150 110 T 280 30" stroke="var(--line)" stroke-width="2" stroke-dasharray="1 8" fill="none"/>
-          <g font-family="JetBrains Mono" font-size="10" fill="var(--ink-faint)">
-            <circle cx="20" cy="190" r="4" fill="var(--ink-faint)"/><text x="28" y="194">Salem</text>
-            <circle cx="150" cy="110" r="4" fill="var(--ink-faint)"/><text x="158" y="114">Namakkal</text>
-            <circle cx="280" cy="30" r="4" fill="var(--ink-faint)"/><text x="228" y="20">Tiruchengode</text>
+      <div class="map-art reveal">
+        <svg viewBox="0 0 320 260">
+          <g stroke="var(--line)" stroke-width="1.4" stroke-dasharray="1 7" stroke-linecap="round">
+            <line x1="160" y1="150" x2="160" y2="55"/>
+            <line x1="160" y1="150" x2="168" y2="225"/>
+            <line x1="160" y1="150" x2="145" y2="180"/>
+            <line x1="160" y1="150" x2="128" y2="105"/>
+            <line x1="160" y1="150" x2="95" y2="120"/>
+            <line x1="160" y1="150" x2="55" y2="150"/>
+            <line x1="160" y1="150" x2="68" y2="190"/>
+            <line x1="160" y1="150" x2="285" y2="90"/>
           </g>
-          <circle cx="95" cy="150" r="7" fill="var(--signal)"/>
-          <svg x="86" y="122" width="18" height="18" viewBox="0 0 24 24"><use href="#i-pin" fill="var(--signal)" stroke="var(--signal)"/></svg>
-          <text x="95" y="178" text-anchor="middle" font-family="Catamaran" font-weight="700" font-size="12" fill="var(--ink)">Sri Saravanaa Cars</text>
+          <g font-family="JetBrains Mono" font-size="9.5" fill="var(--ink-faint)">
+            <circle cx="160" cy="55" r="3.5" fill="var(--ink-faint)"/><text x="166" y="58">Salem</text>
+            <circle cx="168" cy="225" r="3.5" fill="var(--ink-faint)"/><text x="174" y="228">Namakkal</text>
+            <circle cx="145" cy="180" r="3" fill="var(--ink-faint)"/><text x="139" y="168" text-anchor="end" font-size="8.5">Sendamangalam</text>
+            <circle cx="128" cy="105" r="3" fill="var(--ink-faint)"/><text x="134" y="101" font-size="8.5">Vennandur</text>
+            <circle cx="95" cy="120" r="3" fill="var(--ink-faint)"/><text x="89" y="117" text-anchor="end" font-size="8.5">Mallasamudram</text>
+            <circle cx="55" cy="150" r="3.5" fill="var(--ink-faint)"/><text x="49" y="146" text-anchor="end">Sankari</text>
+            <circle cx="68" cy="190" r="3.5" fill="var(--ink-faint)"/><text x="74" y="208">Tiruchengode</text>
+            <circle cx="285" cy="90" r="3.5" fill="var(--ink-faint)"/><text x="279" y="86" text-anchor="end">Attur</text>
+          </g>
+          <circle cx="160" cy="150" r="7" fill="var(--signal)"/>
+          <svg x="151" y="122" width="18" height="18" viewBox="0 0 24 24"><use href="#i-pin" fill="var(--signal)" stroke="var(--signal)"/></svg>
+          <text x="160" y="178" text-anchor="middle" font-family="Catamaran" font-weight="700" font-size="12" fill="var(--ink)">Sri Saravanaa Cars</text>
         </svg>
         <p class="map-caption" data-i18n="map_caption">Schematic route sketch — tap "Get Directions" for live navigation</p>
       </div>
@@ -408,7 +437,7 @@
     <span class="eyebrow" style="text-align:center;" data-i18n="sell_cta_eyebrow">Selling?</span>
     <h2 style="text-align:center; margin-top:6px;" data-i18n="sell_heading">Sell your car for a fair price</h2>
     <p style="text-align:center; color:var(--ink-soft); margin-top:6px;" data-i18n="sell_sub">Fill in your car's details — we'll reply with a quote on WhatsApp.</p>
-    <form id="sellForm" class="form-card" style="margin-top:28px;">
+    <form id="sellForm" class="form-card reveal" style="margin-top:28px;">
       <div class="form-row">
         <div class="field"><label for="sf-name" data-i18n="field_name">Your Name</label><input required id="sf-name" name="name" type="text" data-i18n-placeholder="ph_name" placeholder="e.g. Karthik"></div>
         <div class="field"><label for="sf-phone" data-i18n="field_phone">Phone Number</label><input required id="sf-phone" name="phone" type="tel" pattern="[0-9+ ]{10,15}" data-i18n-placeholder="ph_phone" placeholder="e.g. 98765 43210"></div>
@@ -439,7 +468,7 @@
     <div class="two-col" style="margin-top:46px;">
       <div>
         <h3 style="font-size:1.15rem; margin-bottom:16px;" data-i18n="about_buying_heading">How buying works</h3>
-        <div class="steps">
+        <div class="steps reveal-group">
           <div class="step"><span class="step-num mono">1</span><span data-i18n="about_buy_1">Visit the showroom or call us to see the cars currently available.</span></div>
           <div class="step"><span class="step-num mono">2</span><span data-i18n="about_buy_2">Inspect and test-drive the car of your choice.</span></div>
           <div class="step"><span class="step-num mono">3</span><span data-i18n="about_buy_3">We assist with paperwork, RC transfer and financing.</span></div>
@@ -448,7 +477,7 @@
       </div>
       <div>
         <h3 style="font-size:1.15rem; margin-bottom:16px;" data-i18n="about_selling_heading">How selling works</h3>
-        <div class="steps">
+        <div class="steps reveal-group">
           <div class="step"><span class="step-num mono">1</span><span data-i18n="about_sell_1">Share your car's details on the Sell Your Car page.</span></div>
           <div class="step"><span class="step-num mono">2</span><span data-i18n="about_sell_2">We evaluate the vehicle and offer a transparent quote.</span></div>
           <div class="step"><span class="step-num mono">3</span><span data-i18n="about_sell_3">Agree on price — we handle the paperwork.</span></div>
@@ -457,7 +486,7 @@
       </div>
     </div>
 
-    <div style="text-align:center; margin-top:52px;">
+    <div class="reveal" style="text-align:center; margin-top:52px;">
       <h3 style="font-size:1.15rem;" data-i18n="about_areas_heading">Serving Rasipuram &amp; nearby</h3>
       <div id="serviceAreasAbout" style="margin-top:12px;"></div>
     </div>
@@ -517,8 +546,8 @@ const HOURS = {
   ta: [ { day:"திங்கள் – சனி", time:"9:30 AM – 8:00 PM" }, { day:"ஞாயிறு", time:"10:00 AM – 6:00 PM" } ]
 };
 const SERVICE_AREAS = {
-  en: ["Rasipuram","Namakkal","Tiruchengode","Sankari","Attur","Vennandur","Mallasamudram","Salem"],
-  ta: ["ராசிபுரம்","நாமக்கல்","திருச்செங்கோடு","சங்கரி","ஆத்தூர்","வெண்ணந்தூர்","மல்லசமுத்திரம்","சேலம்"]
+  en: ["Rasipuram","Vennandur","Mallasamudram","Sendamangalam","Salem","Namakkal","Tiruchengode","Sankari","Attur"],
+  ta: ["ராசிபுரம்","வெண்ணந்தூர்","மல்லசமுத்திரம்","செந்தமங்கலம்","சேலம்","நாமக்கல்","திருச்செங்கோடு","சங்கரி","ஆத்தூர்"]
 };
 const MSG = {
   en: {
@@ -731,6 +760,17 @@ function initMobileMenu(){
 }
 
 /* ============================================================
+   TOPBAR SCROLL STATE
+   ============================================================ */
+function initTopbarScroll(){
+  const topbar = document.querySelector('.topbar');
+  if(!topbar) return;
+  const update = () => topbar.classList.toggle('is-scrolled', window.scrollY > 8);
+  update();
+  window.addEventListener('scroll', update, { passive:true });
+}
+
+/* ============================================================
    SELL FORM
    ============================================================ */
 function initSellForm(){
@@ -770,19 +810,76 @@ function render(){
 }
 
 /* ============================================================
-   BOOT
+   STATS (count-up on scroll)
    ============================================================ */
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 function initStats(){
   const el = document.getElementById('statYears');
-  if(el) el.textContent = (new Date().getFullYear() - 2016) + '+';
+  if(el) el.dataset.target = new Date().getFullYear() - 2016;
 }
 
+function animateCount(el, target, suffix, duration){
+  const start = performance.now();
+  function tick(now){
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(eased * target) + suffix;
+    if(p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+function initStatsCountUp(){
+  const strip = document.querySelector('.stats-strip');
+  if(!strip) return;
+  const nums = strip.querySelectorAll('.stat-num');
+  const run = () => nums.forEach(el=>{
+    const target = parseInt(el.dataset.target, 10);
+    const suffix = el.dataset.suffix || '';
+    if(isNaN(target)) return;
+    if(prefersReducedMotion){ el.textContent = target + suffix; }
+    else { animateCount(el, target, suffix, 1200); }
+  });
+  if(prefersReducedMotion || !('IntersectionObserver' in window)){ run(); return; }
+  const obs = new IntersectionObserver((entries, o)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ run(); o.disconnect(); }
+    });
+  }, { threshold:.4 });
+  obs.observe(strip);
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+function initScrollReveal(){
+  const targets = document.querySelectorAll('.reveal, .reveal-group');
+  if(!targets.length) return;
+  if(prefersReducedMotion || !('IntersectionObserver' in window)){
+    targets.forEach(el=> el.classList.add('is-visible'));
+    return;
+  }
+  const obs = new IntersectionObserver((entries, o)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ entry.target.classList.add('is-visible'); o.unobserve(entry.target); }
+    });
+  }, { threshold:.15, rootMargin:'0px 0px -40px 0px' });
+  targets.forEach(el=> obs.observe(el));
+}
+
+/* ============================================================
+   BOOT
+   ============================================================ */
 function boot(){
   initTheme();
   initLanguage();
   initMobileMenu();
+  initTopbarScroll();
   initSellForm();
   initStats();
+  initStatsCountUp();
+  initScrollReveal();
   window.addEventListener('hashchange', render);
   render();
 }
